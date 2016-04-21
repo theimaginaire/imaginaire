@@ -73,6 +73,18 @@
             lazyLoad:true,
             loop:true,
             margin:0,
+            dots:true,
+            autoHeight: true,
+            nav: true,
+            navText: ["<i class='fa fa-long-arrow-left'></i>", "<i class='fa fa-long-arrow-right'></i>"],
+        });
+        $('.testimonial-carousel').owlCarousel({
+            items:1,
+            lazyLoad:true,
+            loop:true,
+            margin:0,
+            dots:true,
+            autoHeight: true,
             nav: true,
             navText: ["<i class='fa fa-long-arrow-left'></i>", "<i class='fa fa-long-arrow-right'></i>"],
         });

@@ -1,12 +1,48 @@
+.default {
+	padding: $midspace;
+}
 .services {
-	margin-top: -40px;
-	font-size: 2.1rem;
+	padding: $midspace;
+	background-color: $lightgrey;
+	h2 {
+		margin-top: 0;
+	}
 	.pane {
-		background-color: $brand-primary;
+		background-color: #fff;
 		padding: 40px;
 		margin-bottom: 30px;
+		text-align: center;
+		h2 {
+			font-size: 1.8rem;
+			color: $brand-primary;
+			margin: 0;
+		}
+		p {
+			font-size: 1.6rem;
+		}
+		.fa {
+			display: block;
+			font-size: 3rem;
+		}
 	}
 }
 .cta {
 	padding-bottom: 80px;
+}
+.testimonial {
+	background-color: $brand-primary;
+	color: #fff !important;
+	padding: $midspace;
+	text-align: center;
+	p {
+		font-size: 2.4rem;
+	}
+	.meta {
+		margin-top: 20px;
+		font-size: 1.8rem;
+	}
+	a {
+		color: #fff !important;
+
+	}
 }
