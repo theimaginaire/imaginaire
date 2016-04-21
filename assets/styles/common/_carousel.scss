@@ -1,0 +1,152 @@
+.owl-carousel {
+	display: block;
+	height: 50%;
+	top: 0;
+	margin-top: -75px;
+}
+.owl-stage-outer, .owl-stage-outer > .owl-stage {
+	position: absolute;
+	height: 100%;
+}
+.owl-item, .owl-item > .item {
+	position: relative;
+	height: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.triangles {
+	position: absolute;
+	bottom: 0;
+	background-image: url('../images/big-triangles.png');
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	width: 100%;
+	height: 500px;
+	z-index: 7;
+	@include MQ(S){
+		display: none;
+	}
+}
+.overlay {
+	width: 100%;
+	height: 100%;
+	background-color: $darkgrey;
+	top: 0;
+	left: 0;
+	opacity: .3;
+	z-index: 5;
+}
+.carousel-content {
+	font-family: $primary-font;
+	font-weight: 300;
+	position: absolute;
+	bottom: 10px;
+	z-index: 10;
+	font-size: 3.2rem;
+	color: #fff;
+	width: 100%;
+	img {
+		display: block;
+	}
+	.title {
+		display: block;
+		width: 100%;
+		text-align: left;
+		margin: $smlspace;
+		p {
+			font-size: 2.4rem;
+		}
+		
+	}
+	.categories {
+		display: block;
+		list-style: none;
+		padding: 0;
+		margin-bottom: 0;
+		li {
+			display: inline;
+			font-size: 1.4rem;
+			text-transform: uppercase;
+			&:not(last-child){
+				margin-right: 15px;
+			}
+		}
+	}
+	.btn-primary {
+		display: inline-block;
+		margin-bottom: 10px;
+		background: none;
+		border: 0;
+		@include border-radius(00);
+		padding: 10px 0;
+		text-transform: uppercase;
+		.fa {
+			margin-left: 30px;
+			font-size: 2rem;
+		}
+		&:after {
+			display: block;
+			margin-top: 5px;
+			content: '';
+			width: 100%;
+			background-color: #fff;
+			height: 2px;
+		}
+		&:hover {
+			.fa {
+				margin-left: 50px;
+				transition: all ease-in-out .4s;
+			}
+			
+		}
+	}
+}
+.client-logo {
+	z-index: -5;
+	position: absolute;
+	@include center;
+	max-width: 300px;
+	max-height: 300px;
+}
+.nav-block {
+	position: absolute;
+	bottom: 0;
+	background-color: #fff;
+}
+.owl-nav {
+	position: absolute;
+	bottom: 20px;
+	right: 40px;
+	color: #fff;
+	z-index: 1000;
+	.fa {
+		font-size: 6rem;
+	}
+	.owl-prev, .owl-next {
+		display: inline;
+		
+	}
+	.owl-prev {
+		margin-right: 30px;
+		&:hover {
+			.fa {
+				transform: translateX(-20px);
+				transition: all ease-in-out 0.4s;
+			}
+			
+		}
+	}
+	.owl-next {
+		&:hover {
+			.fa {
+				transform: translateX(20px);
+				transition: all ease-in-out 0.4s;
+			}
+			
+		}
+	}
+
+	@include MQ(S){
+		display: none;
+	}
+}

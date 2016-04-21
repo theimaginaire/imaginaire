@@ -1,0 +1,12 @@
+.list-group {
+	display: block;
+	.list-group-item {
+		@include border-radius(0);
+		font-size: 2rem;
+		h3 {
+			color: $brand-primary;
+			margin: 0;
+			font-size: 2rem;
+		}
+	}
+}

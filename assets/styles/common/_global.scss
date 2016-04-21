@@ -1,0 +1,465 @@
+html * {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+	@include box-sizing(border-box);
+}
+
+html, body {
+	/* you need to set this to assign to the main element a min height of 100% */
+	height: 100%;
+	font-size: 62.5%;
+}
+
+body {
+	font: {
+		family: $primary-font; // variables inside partials > _variables.scss
+	}
+	color: $main-text;
+	font-weight: 300;
+}
+footer {
+	display: block;
+	margin-top: 40px;
+	p {
+		font-size: 1.8rem;
+		.fa {
+			font-size: 2.4rem;
+			&:not(last-child){
+				margin-right: 15px;
+			}
+
+		}
+	}
+	
+}
+
+a {
+	color: $link;
+	text-decoration: none;
+}
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+
+.cd-img-replace { /* replace text with a background-image */
+	display: inline-block;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+$menu-width: 30%;
+
+.main {
+	position: relative;
+	top: 0;
+	display: block;
+	z-index: 1000;
+	padding: $lrg 0;
+}
+.cd-main-content {
+	/* set a min-height and a z-index to be sure that the main element completely covers the lateral menu */
+	
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	background-color: $background;
+	z-index: $content-zindex;
+	
+	//we assign a top padding since the header is in position absolute or fixed
+	padding-top: $header-S;
+
+	/* Force Hardware Acceleration in WebKit */
+	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+
+	@include transition-property(transform);
+	@include transition-duration(.4s);
+
+	&.lateral-menu-is-open {
+		/* translate to show the lateral menu - all content needs to be put in the .cd-main-content to translate*/
+		@include transform(translateX(-$menu-width));
+		@include MQ(S){
+			@include transform(translateX(-70%));
+		}
+	}
+
+	@include MQ(M) {
+		padding-top: $header-M;
+	}
+}
+.sticky {
+	background-color: $lightgrey;
+	transition: all ease-in-out 0.4s;
+	&.lateral-menu-is-open {
+		/* translate to show the lateral menu */
+		@include transform(translateX(-$menu-width));
+	}
+}
+header {
+	position: fixed;
+	height: $header-S;
+	width: 100%;
+	z-index: $header-zindex;
+	/* Force Hardware Acceleration in WebKit */
+	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+
+	@include transition-property(transform);
+	@include transition-duration(.4s);
+
+	&.lateral-menu-is-open {
+		/* translate to show the lateral menu */
+		@include transform(translateX(-$menu-width));
+	}
+	
+	//assign this class to the header if you want a fixed navigation
+	&.is-fixed {
+		position: fixed;
+	}
+
+	@include MQ(M) {
+		height: $header-M;
+	}
+}
+
+#cd-logo {
+	display: block;
+	float: left;
+	margin-top: 25px;
+	img {
+		display: block;
+	}
+	@include MQ(S){
+		margin-top: 15px;
+		max-width: 200px;
+		&.lateral-menu-is-open {
+			display: none;
+		}
+	}
+
+
+}
+
+#cd-top-nav {
+	float: right;
+	height: 100%;
+
+	display: none;
+
+	ul {
+		height: 100%;
+		padding-top: 18px;
+	}
+
+	li {
+		display: inline-block;
+		margin-right: 1em;
+	}
+
+	a {
+		display: inline-block;
+		padding: .5em;
+		color: $darkgrey;
+		text-transform: uppercase;
+		font-weight: 300;
+		font-size: 1.6rem;
+		text-decoration: none;
+		&:after {
+			display: block;
+			content: '';
+			height: 2px;
+			background-color: $brand-primary;
+			width: 0;
+		}
+		&.current {
+			background-color: $color-2;
+		}
+		&:hover {
+			text-decoration: none;
+			&:after {
+				width: 100%;
+				transition: all ease-in-out 0.4s;
+			}
+		}
+
+
+		.no-touch &:hover {
+			color: rgba(#FFF, .7);
+		}
+	}
+
+	@include MQ(M) {
+		display: block;
+	}
+}
+
+#cd-menu-trigger {
+
+	height: 100%;
+	width: 50px;
+
+	.cd-menu-icon {
+		
+		/* this span is the central line in the menu menu */
+		display: inline-block;
+		position: absolute;
+		@include center(y); // mixin inside partials > _mixings.scss
+		width: 36px;
+		height: 4px;
+		background-color: $darkgrey;
+		right: 40px !important;
+		@include MQ(S){
+			right: 20px !important;
+		}
+		
+		/* these are the upper and lower lines in the menu menu */
+		&::before, &:after {
+			content: '';
+			height: 100%; 
+			position: absolute;
+			background-color: inherit;
+			left: 0;
+		}
+		
+		&::before {
+			width: 40px;
+			bottom: 10px;
+		}
+
+		&::after {
+			width: 30px;
+			top: 10px;
+		}
+		&:hover {
+			background-color: $brand-primary;
+			transition: $ease;
+		}
+		
+	}
+
+	&.is-clicked {
+		.cd-menu-text {
+			right: 10;
+			transition: all ease-in-out 0.9s;
+		}
+		.cd-menu-icon {
+			right: 10;
+			@include MQ(S){
+				right: 50% !important;
+			}
+			background-color: rgba($brand-primary, 0);
+
+			&::before, &::after {
+				background-color: rgba($brand-primary, 1);
+				width: 100%;
+			}
+
+			&::before {
+				bottom: 0;
+				@include transform(rotate(45deg));
+				transition: all ease-in-out 0.5s;
+			}
+
+			&::after {
+				top: 0;
+				@include transform(rotate(-45deg));
+				transition: all ease-in-out 0.5s;
+			}
+		}
+	}
+
+	@include MQ(M) {
+		width: 110px;
+		padding-left: 1.25em;
+
+		.cd-menu-text {
+			display: inline-block;
+			line-height: $header-M;
+		}
+
+		.cd-menu-icon {
+			left: auto;
+			right: 1.25em;
+			@include transform(translateX(0));
+		}
+	}
+}
+
+#cd-lateral-nav {
+	position: fixed;
+	height: 100%;
+	right: 0;
+	top: 0;
+	visibility: hidden;
+	list-style: none;
+	/* the secondary navigation is covered by the main element */
+	z-index: $secondary-nav; // see partials > _variables.scss
+
+	width: $menu-width;
+	@include MQ(S){
+			width: 70%;
+		}
+	background-color: $color-2;
+
+	overflow-y: auto;
+
+	/* Force Hardware Acceleration in WebKit */
+	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+
+	-webkit-transition: -webkit-transform .4s 0s, visibility 0s .4s;
+	-moz-transition: -moz-transform .4s 0s, visibility 0s .4s;
+	transition: transform .4s 0s, visibility 0s .4s;
+
+	/* this creates the subtle slide in animation of the navigation */
+	@include transform(translateX(80px));
+	.menu-full-navigation {
+		list-style: none !important;
+	}
+	.cd-navigation {
+		padding: 0;
+		margin: 10px 0 16px;
+		list-style: none;
+	}
+
+	.sub-menu {
+		padding: 0 10px 20px 15px;
+		display: none;
+		list-style: none;
+	}
+
+	a {
+		display: block;
+		line-height: 2em;
+		padding: 10px 20px;
+		color: $color-3;
+		font-size: 1.8rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		text-decoration: none;
+		&:hover {
+			background-color: lighten($color-2, 5%);
+			text-decoration: none;
+		}
+
+		.no-touch &:hover {
+			color: #FFF;
+		}
+	} 
+
+	@include MQ(M) {
+		.cd-navigation {
+			margin: 20px 0;
+		}
+	}
+
+	&.lateral-menu-is-open {
+		@include transform(translateX(0));
+		visibility: visible;
+		-webkit-transition: -webkit-transform .4s 0s, visibility 0s 0s;
+		-moz-transition: -moz-transform .4s 0s, visibility 0s 0s;
+		transition: transform .4s 0s, visibility 0s 0s;
+
+		/* smooth the scrolling on touch devices - webkit browsers */
+		-webkit-overflow-scrolling: touch;
+
+	}
+}
+
+
+/* style menu items which have a submenu  */
+#cd-lateral-nav .item-has-children > a, #cd-lateral-nav .menu-item-has-children > a {
+	position: relative;
+
+	/* this is the right arrow to show that the item has a submenu  */
+	&::after {
+		content: '';
+		display: block;
+		height: 11px;
+		width: 8px;
+		position: absolute;
+		@include center(y);
+		right: 1em;
+		background: url('../images/cd-arrow.svg') no-repeat center center;
+		background-size: 8px 11px;
+
+		@include transition-property(transform);
+		@include transition-duration(.2s);
+	}
+
+	&.submenu-open::after {
+		@include transform(translateY(-50%) rotate(90deg));
+
+	}
+}
+
+#cd-lateral-nav .socials {
+	@include clearfix;
+	padding: 0 20px;
+
+	a {
+		height: 32px;
+		width: 32px;
+		float: left;
+		padding: 0;
+		background-image: url('../images/cd-socials.svg');
+		background-repeat: no-repeat;
+		background-size: 128px 64px;
+		background-color: #fff;
+		&:hover {
+			background-color: lighten($color-3, 5%);
+		}
+		margin-right: .5em;
+		@include border-radius;
+
+		&.cd-twitter {
+			background-position: 0 0;
+		}
+
+		&.cd-github {
+			background-position: -32px 0;
+		}
+
+		&.cd-facebook {
+			background-position: -64px 0;
+		}
+
+		&.cd-google {
+			background-position: -96px 0;
+		}
+
+		.no-touch &:hover {
+			background-color: #fff;
+
+			&.cd-twitter {
+				background-position: 0 -32px;
+			}
+
+			&.cd-github {
+				background-position: -32px -32px;
+			}
+
+			&.cd-facebook {
+				background-position: -64px -32px;
+			}
+
+			&.cd-google {
+				background-position: -96px -32px;
+			}
+		}
+	}
+}
