@@ -54,7 +54,7 @@ if ( $query->have_posts() ):
 ?>
 <div class="half-block primary animated fadeIn" style="animation-delay: 1.2s;">
 	<div class="text">
-	Get a free quote <i class="fa fa-arrow-right"></i>
+	<a href="<?php bloginfo('url'); ?>/free-quote/">Get a free quote <i class="fa fa-arrow-right"></i></a>
 	</div>
 </div>
 </div>

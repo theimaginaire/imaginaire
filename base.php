@@ -33,7 +33,7 @@ use Roots\Sage\Wrapper;
               <h4><?php the_field('subheading'); ?></h4>
             </div>
             <div class="col-md-4">
-                <?php kw_sc_logo_carousel('accreditation'); ?>
+                <?php if(is_front_page()): kw_sc_logo_carousel('accreditation'); endif; ?>
             </div>
 
 
@@ -47,8 +47,10 @@ use Roots\Sage\Wrapper;
     <?php
     endif;
     ?>
-    
-    <div class="wrap container-fluid">
+    <?php if(is_single()):
+    get_template_part('templates/blog', 'header');
+    endif; ?>
+    <div class="wrap container">
       <div class="content row">
         <main class="main">
           <?php include Wrapper\template_path(); ?>
@@ -59,10 +61,15 @@ use Roots\Sage\Wrapper;
           </aside><!-- /.sidebar -->
         <?php endif; ?>
       </div><!-- /.content -->
-    </div><!-- main content -->
+</div>
+
     <?php if(is_front_page()):
     get_template_part('templates/home', 'sections'); 
     endif; ?>
+    <?php if(is_page_template('template-service.php')): 
+    get_template_part('templates/sections', 'service');
+    endif; ?>
+
     <?php 
     do_action('get_footer');
       get_template_part('templates/footer');

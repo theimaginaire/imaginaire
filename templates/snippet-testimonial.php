@@ -1,7 +1,13 @@
 <?php
 // WP_Query arguments
+if(get_field('page-cat')):
+	$category = get_field('page-cat');
+else: 
+	$category = '';
+endif;
 $args = array (
 	'post_type'              => array( 'testimonial' ),
+	'testimonial-category'	=> $category,
 	'posts_per_page'         => '1',
 );
 

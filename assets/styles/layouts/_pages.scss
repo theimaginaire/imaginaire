@@ -2,12 +2,13 @@
 
 .intro {
 	position: relative;
-	height: 40%;
+	height: 40vh;
 	width: 100%;	
 	.intro-content {
 		position: absolute;
 		bottom: 20px;
 		width: 100%;
+
 		h1 {
 			font-weight: 300;
 			font-size: 4.4rem;
@@ -15,12 +16,20 @@
 			margin-bottom: $sml;
 			color: $brand-primary;
 			line-height: 5.4rem;
+			@include MQ(S){
+				font-size: 2.4rem;
+				line-height: 3.6rem;
+			}
 		}
 		h4 {
 			font-family: $primary-font;
 			font-size: 2rem;
 			line-height: 3.6rem;
 			font-weight: 300;
+			@include MQ(S){
+				font-size: 1.8rem;
+				line-height: 2.4rem;
+			}
 		}
 		p {
 			font-size: 2.1rem;
@@ -57,7 +66,12 @@
 
 .blocks {
 	font-size: 2rem;
-	height: 60%;
+	height: 55vh;
+	@include MQ(S){
+		display: block;
+		height: 1500px;
+		margin-bottom: 40px;
+	}
 }
 .full-block {
 	float: left;
@@ -67,6 +81,10 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	overflow: hidden;
+	@include MQ(S){
+		width: 100%;
+		height: 300px;
+	}
 	.content {
 
 		bottom: 0;
@@ -112,6 +130,10 @@
 	height: 50%;
 	background-color: #ccc;
 	overflow: hidden;
+	@include MQ(S){
+		width: 100%;
+		height: 300px;
+	}
 	&:nth-child(3n){
 		background-color: #d7d7d7;
 	}
@@ -127,6 +149,14 @@
 	position: relative;
 	background-color: lighten($brand-primary, 10%);
 	color: #fff;
+	a {
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		text-decoration: none;
+		padding-bottom: 5px;
+		border-bottom: 3px solid #fff;
+	}
 	.text {
 		position: relative;
 		text-align: center;
@@ -140,6 +170,7 @@
 	&:hover {
 		background-color: lighten($brand-primary, 5%);
 	}
+
 }
 .strap {
 	display: block;
@@ -163,5 +194,34 @@
 			color: #fff;
 			transition: $ease;
 		}
+		@include MQ(S){
+			display: block;
+			margin: 0;
+			font-size: 1.4rem;
+			width: 100%;
+		}
+	}
+}
+.page-header {
+	display: block;
+	position: relative;
+	width: 100%;
+	background-color: $lightgrey;
+}
+/*----------------
+# Blog
+-------------*/
+.blog {
+	padding: 0;
+}
+.blog-header {
+	width: 100%;
+	padding: 40px;
+	background-color: $lightgrey;
+	text-align: center;
+	font-size: 2.1rem;
+	h1 {
+		font-size: 4.8rem;
+		color: #333;
 	}
 }

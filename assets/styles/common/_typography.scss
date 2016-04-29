@@ -13,3 +13,10 @@ a {
 	text-decoration: underline;
 	color: $brand-primary;
 }
+.lead {
+	text-align: center;
+	@include MQ(S){
+		text-align: left;
+		font-weight: 500;
+	}
+}

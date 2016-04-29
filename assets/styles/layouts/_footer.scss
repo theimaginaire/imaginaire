@@ -1,0 +1,51 @@
+footer {
+	display: block;
+	padding: $midspace;
+	background-color: $lightgrey;
+	.row:not(:last-child){
+		border-bottom: 2px solid $grey;
+		margin-bottom: 40px;
+	}
+	h3 {
+		font-size: 2.1rem;
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 1.6rem;
+		.fa {
+			font-size: 2.4rem;
+			color: #999;
+			&:hover {
+				color: $brand-primary;
+				transition: $ease;
+			}
+			&:not(last-child){
+				margin-right: 15px;
+			}
+
+		}
+	}
+	.schema {
+		font-size: 1.6rem;
+		margin-bottom: 30px;
+		span {
+			display: inline;;
+		}
+	}	
+	.menu {
+		font-size: 1.6rem;
+		padding: 0;
+		list-style: none;
+		li {
+			padding: 10px 0;
+
+			a {
+				text-decoration: none;
+			}
+		}
+		li:not(:last-child){
+			margin-bottom: 10px;
+			border-bottom: 3px solid $grey;
+		}
+	}
+}

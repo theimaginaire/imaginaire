@@ -2,7 +2,7 @@
 <div class="container-fluid">
 <div class="row">
 <div class="col-md-6">
-    <a id="cd-logo" href="#0"><img src="<?php the_field('logo', 'options'); ?>" alt="Homepage" class="img-responsive"></a>
+    <a id="cd-logo" href="<?php bloginfo('url'); ?>"><img src="<?php the_field('logo', 'options'); ?>" alt="Homepage" class="img-responsive"></a>
 </div>
 <div class="col-md-5">
 <nav id="cd-top-nav">
