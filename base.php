@@ -47,9 +47,10 @@ use Roots\Sage\Wrapper;
     <?php
     endif;
     ?>
-    <?php if(is_single()):
-    get_template_part('templates/blog', 'header');
+    <?php if(is_home()||is_single()):
+    get_template_part('templates/page', 'header');
     endif; ?>
+
     <div class="wrap container">
       <div class="content row">
         <main class="main">

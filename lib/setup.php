@@ -91,6 +91,10 @@ function display_sidebar() {
     is_front_page(),
     is_page_template('template-custom.php'),
     is_page_template('template-service.php'),
+    is_single(),
+    is_author(),
+    is_page(),
+    is_home(),
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
@@ -101,7 +105,7 @@ function display_sidebar() {
  */
 function assets() {
   wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
-  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat|roboto', false, null);
+  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Libre+Baskerville|roboto|montserrat', false, null);
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }

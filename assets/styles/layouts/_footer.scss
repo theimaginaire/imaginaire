@@ -37,15 +37,13 @@ footer {
 		padding: 0;
 		list-style: none;
 		li {
-			padding: 10px 0;
-
 			a {
 				text-decoration: none;
 			}
 		}
 		li:not(:last-child){
 			margin-bottom: 10px;
-			border-bottom: 3px solid $grey;
+
 		}
 	}
 }
