@@ -10,10 +10,17 @@ endif;
 <div class="page-header" <?php if ( has_post_thumbnail( $page_id ) ) : echo $style; endif; ?>>
 <div class="container">
 <div class="entry-meta">
+<?php if(is_singular('post')): ?>
+		  <a class="hidden-xs" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+		  <?php echo get_avatar( get_the_author_meta('ID'), 100); ?>
+		  </a>
+<?php endif; ?>
   <h1><?= Titles\title(); ?></h1>
-  <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?>
-  <?php echo get_avatar( get_the_author_meta('ID'), 60); ?>
-  </a>
+ <?php if(is_singular('post')): ?>
+ 	<div class="hidden-xs">
+  		<?php get_template_part('templates/entry-meta'); ?>
+  	</div>
+ <?php endif; ?>
 </div>
 </div>
 </div>

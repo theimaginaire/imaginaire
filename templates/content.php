@@ -8,7 +8,7 @@
 	    $image = $image_array[0];
 	?>
 	<div class="image">
-	<img class="img-responsive" src="<?php echo $image; ?>" alt="<?php the_title(); ?>" />
+	<a href="<?php the_permalink(); ?>"><img class="img-responsive" src="<?php echo $image; ?>" alt="<?php the_title(); ?>" /></a>
 	</div>
 	<?php 
 	endif;

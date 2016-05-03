@@ -95,6 +95,8 @@ function display_sidebar() {
     is_author(),
     is_page(),
     is_home(),
+    is_category(),
+    is_archive(),
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

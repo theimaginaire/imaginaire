@@ -47,7 +47,7 @@ use Roots\Sage\Wrapper;
     <?php
     endif;
     ?>
-    <?php if(is_home()||is_single()):
+    <?php if(is_home()||is_single()||is_category()||is_post_type_archive('case-study')):
     get_template_part('templates/page', 'header');
     endif; ?>
 

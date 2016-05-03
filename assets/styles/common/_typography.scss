@@ -20,20 +20,3 @@ a {
 		font-weight: 500;
 	}
 }
-.entry-title, .entry-content, .updated, .byline, .blog-header {
-	font-family: $blog-font;
-}
-.entry-content {
-	
-	font-size: 2.1rem;
-	text-align: justify;
-	p:first-child {
-		font-size: 2.8rem;
-		margin-bottom: 40px;
-		color: #333;
-	}
-}
-.entry-title, .updated, .byline {
-	margin-bottom: 40px;
-	
-}
