@@ -6,7 +6,8 @@ $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
 // Colors
-$brand-primary:         #e9355a;
+$brand-primary:         darken(#29abe1, 5%);
+$slate:	#666;
 $darkgrey:	#222326;
 $lightgrey: #f4f5f6;
 $grey:		#ccc;
@@ -30,7 +31,7 @@ $color-3: #aab5b7; // green light
 
 $primary-font: 'Roboto', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
-$blog-font: 'Libre Baskerville', serif;
+$blog-font: 'Roboto', sans-serif;
 
 // z-index 
 

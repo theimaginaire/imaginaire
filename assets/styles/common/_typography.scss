@@ -11,12 +11,20 @@ h2 {
 }
 a {
 	text-decoration: underline;
-	color: $brand-primary;
+	color: $slate;
 }
 .lead {
-	text-align: center;
+	color: darken($grey, 10%);
 	@include MQ(S){
 		text-align: left;
 		font-weight: 500;
+	}
+	&:after {
+		display: block;
+		content: '';
+		width: 150px;
+		height: 4px;
+		background-color: $grey;
+		margin: $smlspace;
 	}
 }

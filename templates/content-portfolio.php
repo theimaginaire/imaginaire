@@ -6,14 +6,14 @@ $term = get_field('case_category');
 $cat = $term->slug;
 $args = array (
 	'post_type'              => 'case-study',
-	'posts_per_page'		=> '4',
+	'posts_per_page'		=> '-1',
 	'case-category'			=> $cat,
 );
 
 else:
 $args = array (
 	'post_type'              => array( 'case-study' ),
-	'posts_per_page'		=> '4',
+	'posts_per_page'		=> '-1',
 );
 endif;
 
@@ -52,11 +52,7 @@ if ( $query->have_posts() ):
 	$count++;
 	endwhile;
 ?>
-<div class="half-block primary animated fadeIn" style="animation-delay: 1.2s;">
-	<div class="text">
-	<a href="<?php bloginfo('url'); ?>/free-quote/">Get a free quote <i class="fa fa-arrow-right"></i></a>
-	</div>
-</div>
+
 </div>
 <?php
 	endif;

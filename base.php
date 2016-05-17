@@ -47,11 +47,14 @@ use Roots\Sage\Wrapper;
     <?php
     endif;
     ?>
-    <?php if(is_home()||is_single()||is_category()||is_post_type_archive('case-study')):
+    <?php if(is_home()||is_single()||is_category()):
     get_template_part('templates/page', 'header');
     endif; ?>
-
+    <?php if(is_home()||is_singular('post')): ?>
     <div class="wrap container">
+  <?php else: ?>
+    <div class="wrap container-fluid">
+  <?php endif; ?>
       <div class="content row">
         <main class="main">
           <?php include Wrapper\template_path(); ?>
@@ -69,6 +72,8 @@ use Roots\Sage\Wrapper;
     endif; ?>
     <?php if(is_page_template('template-service.php')): 
     get_template_part('templates/sections', 'service');
+    elseif(is_singular('case-study')):
+      get_template_part('templates/content', 'sections');
     endif; ?>
 
     <?php 

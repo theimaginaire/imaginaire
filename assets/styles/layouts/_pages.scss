@@ -14,7 +14,7 @@
 			font-size: 4.4rem;
 			text-align: left;
 			margin-bottom: $sml;
-			color: $brand-primary;
+			color: $slate;
 			line-height: 5.4rem;
 			@include MQ(S){
 				font-size: 2.4rem;
@@ -187,11 +187,11 @@
 		font-size: 1.8rem;
 		margin: $smlspace 0;
 		background: none;
-		border: 3px solid $main-text;
-		color: $main-text;
+		border: 3px solid #fff;
+		color: #fff;
 		&:hover {
-			background-color: $main-text;
-			color: #fff;
+			background-color: #fff;
+			color: $brand-primary;
 			transition: $ease;
 		}
 		@include MQ(S){

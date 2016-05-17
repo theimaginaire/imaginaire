@@ -1,9 +1,91 @@
 .default {
-	padding: $midspace;
+	padding: 0;
+	.row {
+		margin: 0;
+	}
+	p {
+		@include MQ(L){
+			text-align: justify;
+		}
+		
+		line-height: 3.6rem;
+	}
+}
+.no-pad {
+	height: 750px;
+	padding: 0;
+	.row {
+		margin: 0;
+	}
+	.col-md-6 {
+		float: left;
+		@include MQ(S){
+			width: 100%;
+		}
+		position: relative;
+		height: 750px;
+	}
+}
+.full-width {
+	padding: $bigspace;
+	background-color: $lightgrey;
+	text-align: center;
+}
+.big-cta {
+	padding: $bigspace;
+	background-color: $brand-primary;
+	color: #fff;
+	p {
+		font-size: 2.4rem;
+	}
+	font-size: 2.8rem;
+}
+.section-text {
+	position: absolute;
+	@include center(y);
+	padding: 60px;
+	h2 {
+		margin-top: 0;
+		margin-bottom: 40px;
+	}
+	a {
+		color: lighten($slate, 5%);
+		text-decoration: none;
+		padding-bottom: 3px;
+		border-bottom: 2px solid $grey;
+	}
+	ul {
+		display: block;
+		padding: 0;
+		margin: 20px 0;
+		list-style: none;
+		font-size: 1.8rem;
+		li {
+			display: block;
+			color: $slate;
+			&:not(:last-child){
+				margin-bottom: 10px;
+			}
+			&:before {
+				color: $grey;
+				content: '\f105';
+				font-family: FontAwesome;
+				margin-right: 30px;
+			}
+		}
+	}
+}
+.bg-img {
+	height: 750px;
+	@include MQ(S){
+		height: 300px;
+	}
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .services {
 	padding: $midspace;
-	background-color: $lightgrey;
+	background-color: darken($lightgrey, 10%);
 	h2 {
 		margin-top: 0;
 	}
@@ -14,7 +96,7 @@
 		text-align: center;
 		h2 {
 			font-size: 1.8rem;
-			color: $brand-primary;
+			color: $slate;
 			margin: 0;
 		}
 		p {
@@ -26,21 +108,26 @@
 		}
 		a {
 			text-decoration: none;
-
-			border-bottom: 2px solid $brand-primary;
+			border-bottom: 2px solid $grey;
+			&:hover {
+				color: $slate;
+				border-bottom: 2px solid $brand-primary;
+			}
 		}
 	}
 }
 .cta {
-	padding-bottom: 80px;
+	background-color: darken($brand-primary, 15%);
+	color: #fff;
+	
 }
 .testimonial {
-	background-color: $brand-primary;
-	color: #fff !important;
+	background-color: darken($lightgrey, 10%);
+	color: $slate !important;
 	padding: $bigspace;
 	text-align: center;
 	p {
-		font-size: 3rem;
+		font-size: 2.4rem;
 	}
 	.meta {
 		margin-top: 20px;
@@ -48,8 +135,8 @@
 	}
 	a {
 		text-decoration: none;
-		color: #fff !important;
-		border-bottom: 2px solid #fff;
+		color: $slate !important;
+		border-bottom: 2px solid $slate;
 	}
 }
 .blog-snippet {
