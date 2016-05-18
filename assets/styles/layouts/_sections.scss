@@ -38,11 +38,17 @@
 }
 .big-cta {
 	padding: $bigspace;
-	background-color: $brand-primary;
+	background-color: $slate;
 	color: #fff;
 	p {
 		font-size: 2.4rem;
 		color: #fff !important;
+	}
+	a {
+		color: #fff;
+		text-decoration: none;
+		padding-bottom: 3px;
+		border-bottom: 2px solid #fff;
 	}
 	font-size: 2.8rem;
 }
@@ -55,10 +61,17 @@
 		margin-bottom: 40px;
 	}
 	a {
+		display: inline-block;
 		color: lighten($slate, 5%);
 		text-decoration: none;
+		margin-top: 40px !important;
 		padding-bottom: 3px;
 		border-bottom: 2px solid $grey;
+		&:hover {
+			color: $brand-primary;
+			border-bottom: 2px solid $brand-primary;
+			transition: $ease;
+		}
 	}
 	ul {
 		display: block;

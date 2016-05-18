@@ -8,6 +8,7 @@ if ( has_post_thumbnail( $page_id ) ) :
 endif;
 ?>
 <section class="page-header">
+<div class="cat-overlay"></div>
 <div class="category-header" <?php if ( has_post_thumbnail( $page_id ) ) : echo $style; endif; ?>>
 <div class="container">
 <div class="header-info">

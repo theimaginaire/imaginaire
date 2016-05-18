@@ -52,11 +52,13 @@ use Roots\Sage\Wrapper;
     <?php
     endif;
     ?>
-    <?php if(is_home() || is_single() || is_category() ||is_page_template('template-info.php')):
+    <?php if(is_home() || is_singular('post') || is_category() ||is_page_template('template-info.php')):
         get_template_part('templates/page', 'header');
       elseif(is_tax('case-category') || is_archive('case-study')):
         get_template_part('templates/category', 'header');
-    endif; ?>
+      elseif(is_singular('case-study')):
+        get_template_part('templates/case', 'header');
+      endif; ?>
     <?php if(is_home()||is_singular('post')||is_page_template('template-info.php')): ?>
     <div class="wrap container">
   <?php else: ?>
@@ -87,6 +89,8 @@ use Roots\Sage\Wrapper;
       get_template_part('templates/sections', 'info');
     elseif(is_singular('case-study')):
       get_template_part('templates/content', 'sections');
+      get_template_part('templates/case', 'testimonial');
+      get_template_part('templates/content', 'bigcta');
     endif; ?>
 
     <?php 
