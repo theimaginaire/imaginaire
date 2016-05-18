@@ -54,7 +54,14 @@ $menu-width: 30%;
 	display: block;
 	z-index: 1000;
 	padding: $lrg 0;
-
+	font-size: 1.8rem;
+}
+.category-main {
+	padding: 0;
+	margin: 0px !important;
+	.row {
+		margin: 0 !important;
+	}
 }
 .cd-main-content {
 	/* set a min-height and a z-index to be sure that the main element completely covers the lateral menu */

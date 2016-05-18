@@ -43,20 +43,31 @@ use Roots\Sage\Wrapper;
           </div>
       </div>
       </section>
-      <?php get_template_part('templates/blocks'); ?>
+
+      <?php 
+      if(is_front_page() || is_page_template('template-service.php')):
+        get_template_part('templates/blocks');
+      endif;
+      ?>
     <?php
     endif;
     ?>
-    <?php if(is_home()||is_single()||is_category()):
-    get_template_part('templates/page', 'header');
+    <?php if(is_home() || is_single() || is_category() ||is_page_template('template-info.php')):
+        get_template_part('templates/page', 'header');
+      elseif(is_tax('case-category') || is_archive('case-study')):
+        get_template_part('templates/category', 'header');
     endif; ?>
-    <?php if(is_home()||is_singular('post')): ?>
+    <?php if(is_home()||is_singular('post')||is_page_template('template-info.php')): ?>
     <div class="wrap container">
   <?php else: ?>
     <div class="wrap container-fluid">
   <?php endif; ?>
       <div class="content row">
+        <?php if(is_tax('case-category') || is_archive('case-study')): ?>
+        <main class="category-main">
+        <?php else: ?>
         <main class="main">
+      <?php endif; ?>
           <?php include Wrapper\template_path(); ?>
         </main><!-- /.main -->
         <?php if (Setup\display_sidebar()) : ?>
@@ -72,6 +83,8 @@ use Roots\Sage\Wrapper;
     endif; ?>
     <?php if(is_page_template('template-service.php')): 
     get_template_part('templates/sections', 'service');
+    elseif(is_page_template('template-info.php')):
+      get_template_part('templates/sections', 'info');
     elseif(is_singular('case-study')):
       get_template_part('templates/content', 'sections');
     endif; ?>

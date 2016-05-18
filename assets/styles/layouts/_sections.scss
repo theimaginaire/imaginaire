@@ -13,6 +13,7 @@
 }
 .no-pad {
 	height: 750px;
+	font-size: 1.8rem;
 	padding: 0;
 	.row {
 		margin: 0;
@@ -25,11 +26,15 @@
 		position: relative;
 		height: 750px;
 	}
+	.glyphicon {
+		margin-right: 30px;
+	}
 }
 .full-width {
 	padding: $bigspace;
 	background-color: $lightgrey;
 	text-align: center;
+	font-size: 1.8rem;
 }
 .big-cta {
 	padding: $bigspace;
@@ -37,6 +42,7 @@
 	color: #fff;
 	p {
 		font-size: 2.4rem;
+		color: #fff !important;
 	}
 	font-size: 2.8rem;
 }
