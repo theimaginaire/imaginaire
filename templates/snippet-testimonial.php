@@ -8,6 +8,8 @@ endif;
 $args = array (
 	'post_type'              => array( 'testimonial' ),
 	'testimonial-category'	=> $category,
+	'orderby'		=> 'menu_order',
+	'order'			=> 'ASC',
 	'posts_per_page'         => '1',
 );
 

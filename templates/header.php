@@ -1,11 +1,11 @@
 <header>
 <div class="container-fluid">
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-3">
     <a id="cd-logo" href="<?php bloginfo('url'); ?>"><img src="<?php the_field('logo', 'options'); ?>" alt="Homepage" class="img-responsive"></a>
 </div>
-<div class="col-md-5">
-<nav id="cd-top-nav">
+<div class="col-md-8">
+<nav id="cd-top-nav" class="pull-right">
 <?php
 	wp_nav_menu( array(
     'menu' => 'Primary Navigation'

@@ -87,7 +87,7 @@ $menu-width: 30%;
 		/* translate to show the lateral menu - all content needs to be put in the .cd-main-content to translate*/
 		@include transform(translateX(-$menu-width));
 		@include MQ(S){
-			@include transform(translateX(-70%));
+			@include transform(translateX(-100%));
 		}
 	}
 
@@ -101,6 +101,13 @@ $menu-width: 30%;
 	&.lateral-menu-is-open {
 		/* translate to show the lateral menu */
 		@include transform(translateX(-$menu-width));
+	}
+	@include MQ(S){
+		height: 60px;
+		&.lateral-menu-is-open {
+		/* translate to show the lateral menu */
+		@include transform(translateX(-100%));
+		}
 	}
 }
 header {
@@ -118,6 +125,7 @@ header {
 	&.lateral-menu-is-open {
 		/* translate to show the lateral menu */
 		@include transform(translateX(-$menu-width));
+
 	}
 	
 	//assign this class to the header if you want a fixed navigation
@@ -128,6 +136,7 @@ header {
 	@include MQ(M) {
 		height: $header-M;
 	}
+
 }
 
 #cd-logo {
@@ -141,7 +150,11 @@ header {
 		margin-top: 15px;
 		max-width: 200px;
 		&.lateral-menu-is-open {
-			display: none;
+			z-index: 0;
+			img {
+				display: none;
+			}
+			display: none !important;
 		}
 	}
 
@@ -212,13 +225,16 @@ header {
 		display: inline-block;
 		position: absolute;
 		@include center(y); // mixin inside partials > _mixings.scss
+		
 		width: 36px;
 		height: 4px;
 		background-color: $darkgrey;
 		right: 40px !important;
 		@include MQ(S){
-			right: 10px !important;
+			top: 30px;
+			right: 20px !important;
 		}
+
 		
 		/* these are the upper and lower lines in the menu menu */
 		&::before, &:after {
@@ -253,7 +269,11 @@ header {
 		.cd-menu-icon {
 			right: 10;
 			@include MQ(S){
-				right: 42.5% !important;
+				float: right;
+				right: -100px !important;
+			}
+			@include MQ(S){
+				right: -80px !important;
 			}
 			background-color: rgba($brand-primary, 0);
 
@@ -305,7 +325,7 @@ header {
 
 	width: $menu-width;
 	@include MQ(S){
-			width: 70%;
+			width: 100%;
 		}
 	background-color: $color-2;
 
@@ -328,6 +348,9 @@ header {
 		padding: 0;
 		margin: 10px 0 16px;
 		list-style: none;
+		@include MQ(S){
+			margin: 80px 0;
+		}
 	}
 
 	.sub-menu {

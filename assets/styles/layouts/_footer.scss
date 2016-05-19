@@ -3,7 +3,6 @@ footer {
 	padding: $midspace;
 	background-color: $lightgrey;
 	.row:not(:last-child){
-		border-bottom: 2px solid $grey;
 		margin-bottom: 40px;
 	}
 	h3 {
@@ -25,6 +24,11 @@ footer {
 
 		}
 	}
+	@include MQ(S){
+		img {
+			display: none;
+		}
+	}
 	.schema {
 		font-size: 1.6rem;
 		margin-bottom: 30px;
@@ -37,8 +41,15 @@ footer {
 		padding: 0;
 		list-style: none;
 		li {
+			display: inline;
+			&:not(:last-child){
+				margin-right: 20px;
+			}
 			a {
 				text-decoration: none;
+			}
+			@include MQ(S){
+				display: block;
 			}
 		}
 		li:not(:last-child){

@@ -15,16 +15,9 @@ a {
 }
 .lead {
 	color: darken($grey, 10%);
+	margin-bottom: 60px;
 	@include MQ(S){
 		text-align: left;
 		font-weight: 500;
-	}
-	&:after {
-		display: block;
-		content: '';
-		width: 150px;
-		height: 4px;
-		background-color: $grey;
-		margin: $smlspace;
 	}
 }

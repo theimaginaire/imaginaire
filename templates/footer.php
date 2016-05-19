@@ -1,7 +1,7 @@
 <footer>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <h3>Company Information</h2>
           <div class="schema" itemscope itemtype="http://schema.org/LocalBusiness">
              <span itemprop="name">The Imaginaire Online Ltd,</span>
@@ -16,13 +16,13 @@
           <p>Company Registration: 000000</p>
           <p>VAT Number: 0000000</p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
       <h3>Our Services</h3>
           <?php wp_nav_menu( array(
                   'menu' => 'Services'
           ) ); ?>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
       <h3>Information</h3>
           <?php wp_nav_menu( array(
                   'menu' => 'Info'
@@ -31,7 +31,7 @@
     </div>
    	<div class="row">
    		<div class="col-md-3">
-   			<a href="<?php bloginfo('url'); ?>"><img src="<?php the_field('small_logo', 'options'); ?>" alt="Imaginaire Web Design &amp; Digital Marketing" /></a>
+   			<a href="<?php bloginfo('url'); ?>"><img src="<?php the_field('logo', 'options'); ?>" alt="Imaginaire Web Design &amp; Digital Marketing" /></a>
    		</div>
    		<div class="col-md-6">
    			<p class="center">&copy; <?php echo date('Y'); ?> All rights reserved, The Imaginaire Online Ltd</p>

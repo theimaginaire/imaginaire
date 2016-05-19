@@ -28,11 +28,11 @@ use Roots\Sage\Wrapper;
         <div class="intro-content">
          <div class="container-fluid">
          <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <h1><?php the_field('h1'); ?></h1>
               <h4><?php the_field('subheading'); ?></h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <?php if(is_front_page()): kw_sc_logo_carousel('accreditation'); endif; ?>
             </div>
 
@@ -108,14 +108,9 @@ use Roots\Sage\Wrapper;
         'menu_class' => 'cd-navigation',
     ) ); 
     ?>
-    
 
-    <div class="cd-navigation socials">
-      <a class="cd-twitter cd-img-replace" href="#0">Twitter</a>
-      <a class="cd-github cd-img-replace" href="#0">Git Hub</a>
-      <a class="cd-facebook cd-img-replace" href="#0">Facebook</a>
-      <a class="cd-google cd-img-replace" href="#0">Google Plus</a>
-    </div> <!-- socials -->
+
+  
   </nav>
     <?php
       wp_footer();

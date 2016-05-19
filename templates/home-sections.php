@@ -4,8 +4,8 @@
 <?php get_template_part('templates/snippet', 'blog'); ?>
 <section class="strap cta">
 	<div class="container">
-	<p>our open-book client reporting means that, finally, your digital marketing is easy to monitor.</p>
-	<p><a href="#" class="btn btn-primary">see how we report on our campaigns</a>
+	<p>are you looking to start a web design or digital marketing project?</p>
+	<p><a href="<?php bloginfo('url'); ?>/project-planner/" class="btn btn-primary">try our project planner</a>
 	</div>
 </section>
 

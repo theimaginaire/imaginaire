@@ -3,15 +3,33 @@
 .intro {
 	position: relative;
 	height: 40vh;
-	width: 100%;	
+	width: 100%;
+	@include MQ(S){
+		margin-top: 60px;
+	}	
+	@include MQ(XS){
+		margin-top: 120px;
+
+	}
 	.intro-content {
 		position: absolute;
 		bottom: 20px;
 		width: 100%;
-
+		@include MQ(XS){
+			display: block;
+			position: relative;
+			.bx-wrapper {
+				display: none;
+			}
+		}
+		@include MQ(S){
+			.bx-wrapper {
+				display: none;
+			}
+		}
 		h1 {
 			font-weight: 300;
-			font-size: 4.4rem;
+			
 			text-align: left;
 			margin-bottom: $sml;
 			color: $slate;
@@ -19,6 +37,12 @@
 			@include MQ(S){
 				font-size: 2.4rem;
 				line-height: 3.6rem;
+			}
+			@include MQ(M){
+				font-size: 3rem;
+			}
+			@include MQ(L){
+				font-size: 4.4rem;
 			}
 		}
 		h4 {
@@ -29,6 +53,13 @@
 			@include MQ(S){
 				font-size: 1.8rem;
 				line-height: 2.4rem;
+			}
+			@include MQ(M){
+				font-size: 1.8rem;
+				line-height: 2.4rem;
+			}
+			@include MQ(L){
+				font-size: 2rem;
 			}
 		}
 		p {
@@ -149,6 +180,9 @@
 	position: relative;
 	background-color: lighten($brand-primary, 10%);
 	color: #fff;
+	@include MQ(XS){
+		height: 100px !important;
+	}
 	a {
 		width: 100%;
 		height: 100%;
@@ -213,7 +247,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	@include MQ(S){
-		height: 300px;
+		height: 300px !important;
 	}
 	h1 {
 		position: absolute;
@@ -229,15 +263,18 @@
 		@include center();
 		margin: 0;
 		@include MQ(S){
-			margin: 50px 0;
-			font-size: 2.4rem;
+			font-size: 2rem;
 		}
 		h1 {
 			position: relative;
 			text-align: center;
+			margin: 0;
+			@include MQ(S){
+			font-size: 2rem;
+		}
 		}
 		ul {
-			margin: $midspace;
+			margin-top: 40px;
 			padding: 0;
 			list-style: none;
 			font-size: 2.1rem;
@@ -262,19 +299,34 @@
 					}
 					transition: $ease;
 				}
+				@include MQ(S){
+					display: block;
+				}
 			}
 		}
 	}
 }
 .page-header {
 	height: 400px;
+	@include MQ(S){
+		display: none;
+	}
 }
 .case-header {
-	height: 600px;
+	@include MQ(L){
+		height: 600px;
+	}
+	
+	@include MQ(S){
+		height: 300px;
+	}
 }
 .category-header {
 	height: 400px;
 	margin-bottom:-20px !important;
+	@include MQ(S){
+		display: none;
+	}
 }
 .cat-overlay {
 	position: absolute;

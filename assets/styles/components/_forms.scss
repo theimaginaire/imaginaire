@@ -22,7 +22,9 @@ input[type='text'], input[type='email'], input[type='tel']{
 	padding: 5px;
 	font-size: 2.4rem;
 	&:focus {
-		border: none;
+		outline: none;
+		border-bottom: 3px solid $brand-primary;
+		transition: $ease;
 	}
 }
 textarea {
@@ -30,6 +32,11 @@ textarea {
 	font-size: 2.4rem;
 	margin-top: 20px;
 	border: 3px solid darken($lightgrey, 3%);
+	&:focus {
+		outline: none;
+		border: 3px solid $brand-primary;
+		transition: $ease;
+	}
 }
 .wpcf7 {
 	margin-top: 40px !important;
@@ -40,5 +47,8 @@ textarea {
 		width: 100%;
 		padding: 20px;
 		font-size: 2.4rem;
+	}
+	.services {
+		width: 100%;
 	}
 }

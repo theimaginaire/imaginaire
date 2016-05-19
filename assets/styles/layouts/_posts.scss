@@ -134,6 +134,9 @@
 		@include MQ(S){
 			font-size: 2.1rem;
 		}
+		@include MQ(M){
+			font-size: 2.1rem;
+		}
 	}
 }
 .entry-title, .updated, .byline {
